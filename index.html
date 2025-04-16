@@ -72,8 +72,9 @@
     .hero {
       margin-top: 60px;
       height: 85vh;
-      background: url('https://source.unsplash.com/1200x700/?python,code') no-repeat center center;
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -154,6 +155,29 @@
       padding: 40px 20px;
     }
 
+    /********** CERTIFICATE **********/
+    .certificate-section {
+      text-align: center;
+      margin: 40px auto;
+      max-width: 1000px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .certificate-section h2 {
+      border-left: 5px solid #ff5722;
+      padding-left: 10px;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    .certificate-section img {
+      width: 100%;
+      max-width: 800px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
     /********** FOOTER **********/
     footer {
       background: #333;
@@ -207,6 +231,7 @@
   <!-- NAVBAR -->
   <div class="navbar">
     <div class="logo">
+      <!-- Replace with your actual logo file -->
       <img src="IMG_0647.PNG" alt="Logo">
     </div>
     <button class="menu-toggle" id="toggleBtn">
@@ -220,74 +245,37 @@
         <li><a href="#course">Course Info</a></li>
         <li><a href="#modules">Modules</a></li>
         <li><a href="#enroll">Enroll</a></li>
+        <li><a href="#certificate">Certificate</a></li>
       </ul>
     </nav>
   </div>
 
   <!-- HERO -->
-  <section id="home" style="
-  background-image: url('pooster.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  padding: 20px;
-">
-  <!-- Dark Overlay -->
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-  "></div>
-
-  <!-- Hero Content -->
-  <div style="position: relative; z-index: 2; max-width: 800px;">
-    <h1 style="
-      font-size: 3em;
-      margin-bottom: 20px;
-    ">Python Training Course</h1>
-    <p style="
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    ">Course started by CSIB (Cyber Seytonic Intelligence Bureau)</p>
-    <a href="#enroll" style="
-      background-color: #ff5722;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      display: inline-block;
-    " onmouseover="this.style.backgroundColor='#e64a19'" onmouseout="this.style.backgroundColor='#ff5722'">
-      Enroll Now
-    </a>
-  </div>
-</section>
-
+  <section
+    id="home"
+    class="hero"
+    style="
+      background-image: url('pooster.png');
+    "
+  >
+    <div class="hero-content">
+      <h1>Python Training Course</h1>
+      <p>Course started by CSIB (Cyber Seytonic Intelligence Bureau)</p>
+      <a href="#enroll" class="btn">Enroll Now</a>
+    </div>
+  </section>
 
   <!-- COURSE INFO -->
-  <section class="content" id="course">
-    <div class="course-info">
-      <h2>Course Overview</h2>
-      <p><strong>Week 1:</strong> Python setup, variables, data types, lists, dictionaries, pip basics.<br>
-      <em>Task:</em> Build a CLI chatbot mini-script.</p>
-
-      <p><strong>Week 2:</strong> Rule-based chat logic, string matching, chatbot enhancement.<br>
-      <em>Task:</em> Implement keyword-based chatbot logic.</p>
-    </div>
+  <section class="content course-info" id="course">
+    <h2>Course Overview</h2>
+    <p>
+      <strong>Week 1:</strong> Python setup, variables, data types, lists, dictionaries, pip basics.<br>
+      <em>Weekend Tasks:</em> Mini script (JSON I/O), CLI chatbot prototype.
+    </p>
+    <p>
+      <strong>Week 2:</strong> Rule-based chat logic, string matching, chatbot enhancement.<br>
+      <em>Weekend Tasks:</em> Add 5 keyword-responses, final chatbot presentation.
+    </p>
   </section>
 
   <!-- MODULES -->
@@ -304,6 +292,18 @@
     </ul>
   </section>
 
+
+    <!-- CERTIFICATE PREVIEW -->
+    <section class="certificate-section" id="certificate">
+      <h2>Certificate of Completion</h2>
+      <p style="font-size: 1.2em; line-height:1.6;">
+        Upon finishing all modules and tasks successfully, participants will receive this certificate:
+      </p>
+      <!-- Replace "certificate.jpg" with your actual certificate file name -->
+      <img src="certificate.jpg" alt="Python Course Certificate" />
+    </section>
+  
+
   <!-- ENROLL -->
   <section class="content enroll-section" id="enroll">
     <h2>Ready to Start?</h2>
@@ -311,13 +311,15 @@
     <a href="#" class="btn">Enroll Now</a>
   </section>
 
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-nav">
       <a href="#home">Home</a> |
       <a href="#course">Course</a> |
       <a href="#modules">Modules</a> |
-      <a href="#enroll">Enroll</a>
+      <a href="#enroll">Enroll</a> |
+      <a href="#certificate">Certificate</a>
     </div>
     <p>&copy; 2025 CSIB. All rights reserved.</p>
   </footer>
@@ -330,6 +332,5 @@
       navMenu.classList.toggle('show-menu');
     });
   </script>
-
 </body>
 </html>
