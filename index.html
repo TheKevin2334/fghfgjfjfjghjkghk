@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Training Course</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f8fa;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    h1, h2, h3, p {
+      margin: 0 0 15px;
+    }
+
+    /********** NAVBAR **********/
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .logo img {
+      height: 35px;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      margin: 4px auto;
+      background-color: #333;
+      display: block;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      padding: 8px 12px;
+      font-weight: 500;
+    }
+
+    /********** HERO **********/
+    .hero {
+      margin-top: 60px;
+      height: 85vh;
+      background: url('https://source.unsplash.com/1200x700/?python,code') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+    .btn {
+      background: #ff5722;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 25px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #e64a19;
+    }
+
+    /********** CONTENT **********/
+    .content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .course-info h2 {
+      border-left: 5px solid #ff5722;
+      padding-left: 10px;
+      font-size: 1.8em;
+    }
+    .course-info p {
+      line-height: 1.6;
+    }
+
+    .modules {
+      margin-top: 30px;
+    }
+    .modules h3 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .modules ul {
+      padding-left: 20px;
+    }
+    .modules ul li {
+      margin-bottom: 10px;
+    }
+
+    /********** ENROLL **********/
+    .enroll-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /********** FOOTER **********/
+    footer {
+      background: #333;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .footer-nav a {
+      color: white;
+      margin: 0 10px;
+    }
+    .footer-nav a:hover {
+      color: #ff5722;
+    }
+
+    /********** RESPONSIVE **********/
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      nav ul.show-menu {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="IMG_0647.PNG" alt="Logo">
+    </div>
+    <button class="menu-toggle" id="toggleBtn">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#course">Course Info</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#enroll">Enroll</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" style="
+  background-image: url('pooster.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+">
+  <!-- Dark Overlay -->
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  "></div>
+
+  <!-- Hero Content -->
+  <div style="position: relative; z-index: 2; max-width: 800px;">
+    <h1 style="
+      font-size: 3em;
+      margin-bottom: 20px;
+    ">Python Training Course</h1>
+    <p style="
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    ">Course started by CSIB (Cyber Seytonic Intelligence Bureau)</p>
+    <a href="#enroll" style="
+      background-color: #ff5722;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      display: inline-block;
+    " onmouseover="this.style.backgroundColor='#e64a19'" onmouseout="this.style.backgroundColor='#ff5722'">
+      Enroll Now
+    </a>
+  </div>
+</section>
+
+
+  <!-- COURSE INFO -->
+  <section class="content" id="course">
+    <div class="course-info">
+      <h2>Course Overview</h2>
+      <p><strong>Week 1:</strong> Python setup, variables, data types, lists, dictionaries, pip basics.<br>
+      <em>Task:</em> Build a CLI chatbot mini-script.</p>
+
+      <p><strong>Week 2:</strong> Rule-based chat logic, string matching, chatbot enhancement.<br>
+      <em>Task:</em> Implement keyword-based chatbot logic.</p>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="content modules" id="modules">
+    <h3>Modules Covered</h3>
+    <ul>
+      <li>Python Basics & Environment Setup</li>
+      <li>Variables, Data Types, Operators</li>
+      <li>Data Structures: Lists & Dictionaries</li>
+      <li>Functions & Control Flow</li>
+      <li>Basic Chatbot Logic</li>
+      <li>Keyword Matching & Pattern Responses</li>
+      <li>Mini Project: CLI Chatbot App</li>
+    </ul>
+  </section>
+
+  <!-- ENROLL -->
+  <section class="content enroll-section" id="enroll">
+    <h2>Ready to Start?</h2>
+    <p>Enroll now and join our 2-week Python Bootcamp.</p>
+    <a href="#" class="btn">Enroll Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-nav">
+      <a href="#home">Home</a> |
+      <a href="#course">Course</a> |
+      <a href="#modules">Modules</a> |
+      <a href="#enroll">Enroll</a>
+    </div>
+    <p>&copy; 2025 CSIB. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('show-menu');
+    });
+  </script>
+
+</body>
+</html>
